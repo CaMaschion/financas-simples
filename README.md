@@ -1,6 +1,6 @@
 # Finanças Simples
 
-APlicativo para organizar suas finanças!
+Aplicativo para organizar suas finanças!
 
 💰💰💰💰
 
