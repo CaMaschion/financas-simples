@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#4BDAA7</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorPrimaryOrange">#E59E4B</color>
+    <color name="colorBackgroud">#ffffff</color>
+    <color name="colorBackgroudButton">#E59E4B</color>
 </resources>
