@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">financas-simples-android</string>
+    <string name="app_name">Finanças Simples</string>
+    <string name="login">Entrar</string>
 </resources>
