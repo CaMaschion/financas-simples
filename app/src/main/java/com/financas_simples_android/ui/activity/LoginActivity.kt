@@ -1,5 +1,6 @@
 package com.financas_simples_android.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -52,14 +53,23 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<TokenResponse>, response: Response<TokenResponse>) {
-                if(response.body() != null && response.body()?.error == false)
+                if(isValidResponse(response))
                 {
-                    Toast.makeText(applicationContext, response.body()?.token , Toast.LENGTH_SHORT).show()
+                    goToHomePage()
                 }
                 else{
-                    Toast.makeText(applicationContext, INVALID_CREDENTIALS_ERROR_MSG, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, INVALID_CREDENTIALS_ERROR_MSG, Toast.LENGTH_LONG).show()
                 }
             }
         })
+    }
+
+    private fun goToHomePage() {
+        val homeIntent = Intent(applicationContext, HomeActivity::class.java)
+        startActivity(homeIntent)
+    }
+
+    private fun isValidResponse(response: Response<TokenResponse>): Boolean {
+       return response.body() != null && response.body()?.error == false
     }
 }
