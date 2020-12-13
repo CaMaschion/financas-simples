@@ -33,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
                 authenticateUserAndPassword(emailAdress.text.toString(), textPassword.text.toString())
             }
         }
+
+        btnRegister.setOnClickListener {
+            goToRegisterPage()
+        }
     }
 
     private fun validateUsernameAndPassword(): Boolean {
@@ -71,5 +75,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun isValidResponse(response: Response<TokenResponse>): Boolean {
        return response.body() != null && response.body()?.error == false
+    }
+
+    private fun goToRegisterPage() {
+        val registerIntent = Intent(applicationContext, RegisterActivity::class.java)
+        startActivity(registerIntent)
     }
 }

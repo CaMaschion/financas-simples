@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Finanças Simples</string>
     <string name="login">Entrar</string>
+    <string name="register">Registrar</string>
 </resources>
