@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="25dp">
 
     <EditText
-        android:id="@+id/nameRegister"
+        android:id="@+id/txtNameRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -21,13 +21,13 @@
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/dateRegister"
+        app:layout_constraintBottom_toTopOf="@+id/dtBirthDateRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/dateRegister"
+        android:id="@+id/dtBirthDateRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -37,13 +37,16 @@
         android:layout_marginRight="32dp"
         android:ems="10"
         android:hint="Data de Nascimento"
+        android:enabled="true"
+        android:clickable="true"
         android:inputType="date"
+        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNameRegister" />
 
     <EditText
-        android:id="@+id/passwordRegister"
+        android:id="@+id/txtPasswordRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -56,25 +59,25 @@
         app:layout_constraintTop_toBottomOf="@+id/otherGenderButton" />
 
     <EditText
-        android:id="@+id/confirmPasswordRegister"
+        android:id="@+id/txtConfirmPasswordRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/passwordRegister"
-        app:layout_constraintTop_toBottomOf="@+id/passwordRegister" />
+        app:layout_constraintStart_toStartOf="@+id/txtPasswordRegister"
+        app:layout_constraintTop_toBottomOf="@+id/txtPasswordRegister" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnNewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/txtConfirmPasswordRegister" />
 
     <RadioButton
         android:id="@+id/radioButton"
@@ -107,7 +110,7 @@
         android:text="Gênero"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/dtBirthDateRegister" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -122,7 +125,7 @@
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:text="Outro"
-        app:layout_constraintStart_toStartOf="@+id/passwordRegister"
+        app:layout_constraintStart_toStartOf="@+id/txtPasswordRegister"
         app:layout_constraintTop_toBottomOf="@+id/radioButton2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

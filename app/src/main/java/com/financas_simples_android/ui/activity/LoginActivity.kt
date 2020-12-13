@@ -25,18 +25,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        btnLogin.setOnClickListener {
-
-            if (validateUsernameAndPassword()) {
-                Toast.makeText(this, REQUIRED_FIELDS_ERROR_MSG, Toast.LENGTH_SHORT).show()
-            } else {
-                authenticateUserAndPassword(emailAdress.text.toString(), textPassword.text.toString())
-            }
-        }
-
-        btnRegister.setOnClickListener {
-            goToRegisterPage()
-        }
+        registerButtons()
     }
 
     private fun validateUsernameAndPassword(): Boolean {
@@ -66,6 +55,22 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun registerButtons()
+    {
+        btnLogin.setOnClickListener {
+
+            if (validateUsernameAndPassword()) {
+                Toast.makeText(this, REQUIRED_FIELDS_ERROR_MSG, Toast.LENGTH_SHORT).show()
+            } else {
+                authenticateUserAndPassword(emailAdress.text.toString(), textPassword.text.toString())
+            }
+        }
+
+        btnRegister.setOnClickListener {
+            goToRegisterPage()
+        }
     }
 
     private fun goToHomePage() {
