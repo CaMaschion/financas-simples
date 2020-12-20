@@ -15,14 +15,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="89dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="18dp"
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/dtBirthDateRegister"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,19 +25,14 @@
         android:id="@+id/dtBirthDateRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:ems="10"
-        android:hint="Data de Nascimento"
-        android:enabled="true"
+        android:layout_marginTop="20dp"
         android:clickable="true"
-        android:inputType="date"
+        android:ems="10"
+        android:enabled="true"
         android:focusable="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Data de Nascimento"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="@+id/txtNameRegister"
         app:layout_constraintTop_toBottomOf="@+id/txtNameRegister" />
 
     <EditText
@@ -62,7 +52,7 @@
         android:id="@+id/txtConfirmPasswordRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
@@ -85,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="13dp"
         android:text="Feminino"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/genderRegister"
@@ -104,12 +94,10 @@
         android:id="@+id/genderRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="19dp"
         android:text="Gênero"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/dtBirthDateRegister"
         app:layout_constraintTop_toBottomOf="@+id/dtBirthDateRegister" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -122,10 +110,8 @@
         android:id="@+id/otherGenderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
         android:text="Outro"
-        app:layout_constraintStart_toStartOf="@+id/txtPasswordRegister"
+        app:layout_constraintStart_toStartOf="@+id/radioButton2"
         app:layout_constraintTop_toBottomOf="@+id/radioButton2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

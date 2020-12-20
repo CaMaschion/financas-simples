@@ -2,12 +2,22 @@ package com.financas_simples_android.ui.activity
 
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.financas_simples_android.R
+import com.financas_simples_android.model.request.AuthRequest
 import com.financas_simples_android.model.request.RegisterRequest
+import com.financas_simples_android.model.response.RegisterResponse
+import com.financas_simples_android.model.response.TokenResponse
+import com.financas_simples_android.service.ApiService
+import com.financas_simples_android.service.AuthService
+import com.financas_simples_android.service.RegisterService
 import kotlinx.android.synthetic.main.activity_register.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -15,6 +25,7 @@ import java.util.*
 class RegisterActivity : AppCompatActivity() {
 
     private val ALL_FIELDS_REQUIRED: String = "TODOS OS CAMPOS SÃO OBRIGATÓRIOS"
+    private val REQUEST_ERROR_MSG = "Ocorreu um erro. Tente novamaente"
     private val pattern = "dd/MM/yy"
     private val simpleDateFormat = SimpleDateFormat(pattern, Locale.US)
 
@@ -27,7 +38,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun resgisterButtons() {
 
-        ConfigureDatePicker()
+        configureDatePicker()
 
         btnNewRegister.setOnClickListener {
 
@@ -49,26 +60,46 @@ class RegisterActivity : AppCompatActivity() {
             {
                 Toast.makeText(applicationContext, ALL_FIELDS_REQUIRED, Toast.LENGTH_LONG).show()
             }
-            
         }
     }
 
-    private fun registerNewUser(registerRequest: RegisterRequest) {
-        // TODO: 13/12/20 create function to send a post to api. 
+    private fun registerNewUser(body: RegisterRequest) {
+
+        val registerRequest = ApiService.buildService(RegisterService::class.java)
+        val responseCall = registerRequest.registerNewUser(body)
+
+        responseCall.enqueue(object : Callback<RegisterResponse> {
+
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Toast.makeText(applicationContext, REQUEST_ERROR_MSG, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(
+                call: Call<RegisterResponse>,
+                response: Response<RegisterResponse>
+            ) {
+                if (response.isSuccessful && response.body()!!.error) {
+                    Toast.makeText(applicationContext, REQUEST_ERROR_MSG, Toast.LENGTH_SHORT).show()
+                }
+                if (response.isSuccessful && response.body()!!.error == false) {
+                    goToHomePage()
+                }
+            }
+        })
     }
 
-    private fun getGender(): Int {
-        // TODO: 13/12/20  create logic to get the radio button choosen.  
-        return 1;
+    private fun getGender(): String {
+        // TODO: 13/12/20  create logic to get the radio button choosen.
+        return "other";
     }
 
     private fun validateInputs(registerRequest: RegisterRequest): Boolean {
-        // TODO: 13/12/20  create validate logic for all fields. if all fields are filled than return true. if not, return false. 
+        // TODO: 13/12/20  create validate logic for all fields. if all fields are filled than return true. if not, return false.
         
         return true
     }
 
-    private fun ConfigureDatePicker() {
+    private fun configureDatePicker() {
         //get calendar to handle with date stuffs
         val calendar: Calendar = Calendar.getInstance()
 
@@ -76,7 +107,7 @@ class RegisterActivity : AppCompatActivity() {
         //we pass to the listener the following parameters: the view (current view, aka RegisterView),
         //current year, month and day.
         //we setup how to format the date and load this date on edit text everytime we chose a new date.
-        var dioalog =
+        var dialog =
             OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 calendar[Calendar.YEAR] = year
                 calendar[Calendar.MONTH] = monthOfYear
@@ -92,12 +123,17 @@ class RegisterActivity : AppCompatActivity() {
         dtBirthDateRegister.setOnClickListener {
             DatePickerDialog(
                 this@RegisterActivity,
-                dioalog,
+                dialog,
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
+    }
+
+    private fun goToHomePage() {
+        val homeIntent = Intent(applicationContext, HomeActivity::class.java)
+        startActivity(homeIntent)
     }
 }
 

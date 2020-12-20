@@ -5,8 +5,7 @@ import java.util.*
 data class RegisterRequest (
     var name : String,
     var birthDate : Date,
-    var gender : Int,
+    var gender : String,
     var email : String,
     var password : String
-
 )
