@@ -2,7 +2,6 @@ package com.financas_simples_android.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.financas_simples_android.R
@@ -25,14 +24,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        btnLogin.setOnClickListener {
-
-            if (validateUsernameAndPassword()) {
-                Toast.makeText(this, REQUIRED_FIELDS_ERROR_MSG, Toast.LENGTH_SHORT).show()
-            } else {
-                authenticateUserAndPassword(emailAdress.text.toString(), textPassword.text.toString())
-            }
-        }
+        registerButtons()
     }
 
     private fun validateUsernameAndPassword(): Boolean {
@@ -64,6 +56,22 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
+    private fun registerButtons()
+    {
+        btnLogin.setOnClickListener {
+
+            if (validateUsernameAndPassword()) {
+                Toast.makeText(this, REQUIRED_FIELDS_ERROR_MSG, Toast.LENGTH_SHORT).show()
+            } else {
+                authenticateUserAndPassword(emailAdress.text.toString(), textPassword.text.toString())
+            }
+        }
+
+        btnRegister.setOnClickListener {
+            goToRegisterPage()
+        }
+    }
+
     private fun goToHomePage() {
         val homeIntent = Intent(applicationContext, HomeActivity::class.java)
         startActivity(homeIntent)
@@ -71,5 +79,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun isValidResponse(response: Response<TokenResponse>): Boolean {
        return response.body() != null && response.body()?.error == false
+    }
+
+    private fun goToRegisterPage() {
+        val registerIntent = Intent(applicationContext, RegisterActivity::class.java)
+        startActivity(registerIntent)
     }
 }
