@@ -1,5 +1,26 @@
 <resources>
+    <!--Login Page-->
+
     <string name="app_name">Finanças Simples</string>
     <string name="login">Entrar</string>
     <string name="register">Registrar</string>
+    <string name="btn_enter_login">Entrar</string>
+    <string name="btn_register_login_screen">Registrar</string>
+    <string name="logo">Logo Finanças Simples</string>
+    <string name="input_email">E-mail</string>
+
+    <!--Register Page-->
+
+    <string name="register_name">Nome</string>
+    <string name="dt_Birth_Date_Register">Data de Nascimento</string>
+    <string name="gender_register">Gênero</string>
+    <string name="other_gender_button">Outro</string>
+    <string name="password_register">Senha</string>
+    <string name="confirm_password_register">Confirmar Senha</string>
+    <string name="btn_new_register">Cadastrar</string>
+    <string name="radio_female">Feminino</string>
+    <string name="radio_male">Masculino</string>
+    <string name="email_register">E-mail</string>
+    <string name="input_password">Senha</string>
+
 </resources>
