@@ -55,7 +55,7 @@
         tools:targetApi="lollipop" />
 
     <EditText
-        android:id="@+id/emailRegister"
+        android:id="@+id/txtEmailRegister"
         android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -149,13 +149,20 @@
         android:id="@+id/genderRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginRight="150dp"
         android:gravity="center_horizontal"
         android:text="@string/gender_register"
         android:textColor="@color/colorBackgroud"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="283dp" />
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailRegister" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -174,7 +181,7 @@
         app:layout_constraintTop_toBottomOf="@+id/genderRegister">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButtonFemale"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -188,13 +195,15 @@
             android:text="@string/radio_female"
             android:textColor="@color/colorBackgroud"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/radioButton2"
+            android:onClick="getGender"
+            app:layout_constraintEnd_toStartOf="@+id/radioButtonMale"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/genderRegister" />
+            app:layout_constraintTop_toBottomOf="@+id/genderRegister"
+             />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButtonMale"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -208,9 +217,10 @@
             android:text="@string/radio_male"
             android:textColor="@color/colorBackgroud"
             android:textSize="14sp"
+            android:onClick="getGender"
             app:layout_constraintEnd_toStartOf="@+id/otherGenderButton"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/radioButton"
+            app:layout_constraintStart_toEndOf="@+id/radioButtonFemale"
             app:layout_constraintTop_toBottomOf="@+id/genderRegister" />
 
 
@@ -226,11 +236,12 @@
             android:button="@android:drawable/radiobutton_off_background"
             android:scaleX="1.5"
             android:scaleY="1.5"
+            android:onClick="getGender"
             android:text="@string/other_gender_button"
             android:textColor="@color/colorBackgroud"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/radioButton2" />
+            app:layout_constraintStart_toEndOf="@+id/radioButtonMale" />
 
     </RadioGroup>
 

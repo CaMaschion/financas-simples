@@ -4,15 +4,14 @@ import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.financas_simples_android.R
-import com.financas_simples_android.model.request.AuthRequest
 import com.financas_simples_android.model.request.RegisterRequest
 import com.financas_simples_android.model.response.RegisterResponse
-import com.financas_simples_android.model.response.TokenResponse
 import com.financas_simples_android.service.ApiService
-import com.financas_simples_android.service.AuthService
 import com.financas_simples_android.service.RegisterService
 import kotlinx.android.synthetic.main.activity_register.*
 import retrofit2.Call
@@ -28,6 +27,7 @@ class RegisterActivity : AppCompatActivity() {
     private val REQUEST_ERROR_MSG = "Ocorreu um erro. Tente novamaente"
     private val pattern = "dd/MM/yy"
     private val simpleDateFormat = SimpleDateFormat(pattern, Locale.US)
+    private lateinit var gender: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +47,8 @@ class RegisterActivity : AppCompatActivity() {
             val request = RegisterRequest(
                 name = txtNameRegister.text.toString(),
                 birthDate = birthDate,
-                gender = getGender(),//create logic to get the right radio button.
-                email = "", //replace this for email component
+                gender = gender,
+                email = txtEmailRegister.text.toString(),
                 password = txtPasswordRegister.text.toString()
             )
 
@@ -88,15 +88,36 @@ class RegisterActivity : AppCompatActivity() {
         })
     }
 
-    private fun getGender(): String {
-        // TODO: 13/12/20  create logic to get the radio button choosen.
-        return "other";
+    fun getGender(view: View) {
+       if (view is RadioButton) {
+           val checked = view.isChecked
+           when (view.getId()){
+               R.id.radioButtonFemale ->
+                   if (checked) {
+                       gender = "Female"
+                   }
+               R.id.radioButtonMale ->
+                   if(checked) {
+                       gender = "Male"
+                   }
+               R.id.otherGenderButton ->
+                   if(checked){
+                       gender = "Other"
+                   }
+           }
+       }
     }
 
     private fun validateInputs(registerRequest: RegisterRequest): Boolean {
-        // TODO: 13/12/20  create validate logic for all fields. if all fields are filled than return true. if not, return false.
-        
-        return true
+
+        if (registerRequest.name != "" &&
+            registerRequest.birthDate < Date() &&
+            registerRequest.email != "" &&
+            registerRequest.gender != "" &&
+            registerRequest.password != "") {
+            return true
+        }
+        return false
     }
 
     private fun configureDatePicker() {
