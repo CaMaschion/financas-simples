@@ -34,6 +34,8 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         resgisterButtons()
+        getGender()
+
     }
 
     private fun resgisterButtons() {
@@ -88,24 +90,16 @@ class RegisterActivity : AppCompatActivity() {
         })
     }
 
-    fun getGender(view: View) {
-       if (view is RadioButton) {
-           val checked = view.isChecked
-           when (view.getId()){
-               R.id.radioButtonFemale ->
-                   if (checked) {
-                       gender = "Female"
-                   }
-               R.id.radioButtonMale ->
-                   if(checked) {
-                       gender = "Male"
-                   }
-               R.id.otherGenderButton ->
-                   if(checked){
-                       gender = "Other"
-                   }
-           }
-       }
+    fun getGender() {
+
+        radioGroup.setOnCheckedChangeListener { radioGroup, radioButtonID ->
+            val selectedRadioButton = radioGroup.findViewById<RadioButton>(radioButtonID)
+            gender = when (selectedRadioButton.text) {
+                "Feminino" -> "Female🗡️"
+                "Masculino" -> "🏹Male"
+                else -> "💀Other"
+            }
+        }
     }
 
     private fun validateInputs(registerRequest: RegisterRequest): Boolean {
@@ -157,7 +151,3 @@ class RegisterActivity : AppCompatActivity() {
         startActivity(homeIntent)
     }
 }
-
-
-
-
