@@ -3,6 +3,7 @@
     <color name="colorPrimary">#2DA688</color>
     <color name="colorPrimaryDark">#2DA688</color>
     <color name="colorAccent">#2DA688</color>
+    <color name="colorSegmentedButton">#94B8F3E4</color>
     <color name="colorPrimaryOrange">#E59E4B</color>
     <color name="colorBackgroud">#ffffff</color>
     <color name="colorBackgroudButton">#E59E4B</color>
