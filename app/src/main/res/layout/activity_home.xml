@@ -40,33 +40,23 @@
         app:layout_constraintTop_toTopOf="@+id/topView"
         app:layout_constraintVertical_bias="0.19" />
 
-    <ScrollView
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_last_movement"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="152dp"
-                tools:layout_editor_absoluteY="103dp" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_gravity="center_horizontal"/>
-
-        </FrameLayout>
-
-    </ScrollView>
+    <include
+        android:id="@+id/rv_list_movement"
+        layout="@layout/rv_movement"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/topView"
+        app:layout_constraintTop_toBottomOf="@+id/details"
+        app:layout_constraintVertical_bias="0.068" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
