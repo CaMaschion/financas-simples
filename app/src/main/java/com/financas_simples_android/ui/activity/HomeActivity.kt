@@ -3,12 +3,13 @@ package com.financas_simples_android.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.financas_simples_android.R
 import com.financas_simples_android.adapter.MovementsAdapter
 import com.financas_simples_android.model.response.MovementResponse
 import com.financas_simples_android.service.ApiService
-import com.financas_simples_android.service.MovementsService
+import com.financas_simples_android.service.MovementService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
     fun getMovements() {
 
-        val request = ApiService.buildService(MovementsService::class.java)
+        val request = ApiService.buildService(MovementService::class.java)
         val call = request.getMovements()
 
         call.enqueue(object : Callback<List<MovementResponse>> {
@@ -43,6 +44,9 @@ class HomeActivity : AppCompatActivity() {
                     movementAdapter = body?.let { MovementsAdapter(it) }!!
 
                     recyclerView.apply {
+
+                        layoutManager = LinearLayoutManager(this@HomeActivity)
+                        recyclerView.layoutManager = layoutManager
                         setHasFixedSize(true)
                         adapter = movementAdapter
                     }
