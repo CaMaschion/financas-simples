@@ -7,4 +7,5 @@
     <color name="colorPrimaryOrange">#E59E4B</color>
     <color name="colorBackgroud">#ffffff</color>
     <color name="colorBackgroudButton">#E59E4B</color>
+    <color name="colorBackgroudCardMovement">#FFD9D2D2</color>
 </resources>
