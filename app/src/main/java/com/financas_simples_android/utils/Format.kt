@@ -26,7 +26,7 @@ class Format {
 
            when (category) {
                 "Home" -> return "#F573CE"
-                "Supermarket" -> return ""
+                "Supermarket" -> return "#F0765D"
                 "Health" -> return "#54D3FA"
                 "Clothes" -> return "#954688"
                 "SelfCare" -> return "#F0AE67"

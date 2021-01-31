@@ -8,4 +8,19 @@
     <color name="colorBackgroud">#ffffff</color>
     <color name="colorBackgroudButton">#E59E4B</color>
     <color name="colorBackgroudCardMovement">#FFD9D2D2</color>
+
+<!--    category colors-->
+
+    <color name="colorHome">#F573CE</color>
+    <color name="colorSupermarket">#F0765D</color>
+    <color name="colorHealth">#54D3FA</color>
+    <color name="colorClothes">#954688</color>
+    <color name="colorSelfCare">#F0AE67</color>
+    <color name="colorFood">#FA694B</color>
+    <color name="colorPet">#F56E73</color>
+    <color name="colorTransport">#AF97F0</color>
+    <color name="colorInvestment">#4FA963</color>
+    <color name="colorOther">#7A3938</color>
+
+
 </resources>
