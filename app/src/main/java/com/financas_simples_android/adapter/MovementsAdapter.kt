@@ -26,7 +26,7 @@ class MovementsAdapter(private val movement: List<MovementResponse>) :
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
 
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.list_movement, viewGroup, false)
+            .inflate(R.layout.cardview_list_movement, viewGroup, false)
 
         return ViewHolder(view)
     }

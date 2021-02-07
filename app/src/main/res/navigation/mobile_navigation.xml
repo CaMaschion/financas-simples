@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_my_moviment">
+
+    <fragment
+        android:id="@+id/nav_my_moviment"
+        android:name="com.financas_simples_android.ui.activity.ui.new_movement.HomeFragment"
+        android:label="@string/menu_new_movement"
+        tools:layout="@layout/fragment_new_movement" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.financas_simples_android.ui.activity.ui.my_investment.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_my_investment" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.financas_simples_android.ui.activity.ui.my_movement.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_my_profile" />
+</navigation>
