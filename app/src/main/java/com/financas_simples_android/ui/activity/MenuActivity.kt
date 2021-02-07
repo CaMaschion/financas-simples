@@ -18,12 +18,15 @@ import com.financas_simples_android.R
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var drawerLayout: DrawerLayoutrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
@@ -31,6 +34,7 @@ class MenuActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -38,7 +42,7 @@ class MenuActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_my_moviment, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_new_movement_fragment, R.id.nav_my_investment_fragment, R.id.nav_my_movement_fragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

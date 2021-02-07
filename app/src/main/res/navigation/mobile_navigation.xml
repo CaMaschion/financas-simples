@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_my_moviment">
+    app:startDestination="@+id/nav_new_movement_fragment">
 
     <fragment
-        android:id="@+id/nav_my_moviment"
+        android:id="@+id/nav_new_movement_fragment"
         android:name="com.financas_simples_android.ui.activity.ui.new_movement.HomeFragment"
         android:label="@string/menu_new_movement"
         tools:layout="@layout/fragment_new_movement" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_my_investment_fragment"
         android:name="com.financas_simples_android.ui.activity.ui.my_investment.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_my_investment"
         tools:layout="@layout/fragment_my_investment" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_my_movement_fragment"
         android:name="com.financas_simples_android.ui.activity.ui.my_movement.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_my_movement"
         tools:layout="@layout/fragment_my_profile" />
 </navigation>

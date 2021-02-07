@@ -19,6 +19,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var movementAdapter: MovementsAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
