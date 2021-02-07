@@ -22,4 +22,11 @@
             android:icon="@drawable/ic_my_profile"
             android:title="@string/menu_my_profile" />
     </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/menu_logout" />
+    </group>
 </menu>

@@ -38,5 +38,6 @@
     <string name="menu_my_investment">Meus investimentos</string>
     <string name="menu_my_movement">Minhas movimentações</string>
     <string name="menu_my_profile">Editar minhas informações</string>
+    <string name="menu_logout">Sair</string>
 
 </resources>
