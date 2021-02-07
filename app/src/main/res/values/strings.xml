@@ -23,4 +23,21 @@
     <string name="email_register">E-mail</string>
     <string name="input_password">Senha</string>
 
+
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Finanças Simples</string>
+    <string name="nav_header_subtitle">financassimples@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+<!--    navigation nav menu-->
+
+    <string name="menu_new_movement">Nova Movimentação</string>
+    <string name="menu_my_investment">Meus investimentos</string>
+    <string name="menu_my_movement">Minhas movimentações</string>
+    <string name="menu_my_profile">Editar minhas informações</string>
+    <string name="menu_logout">Sair</string>
+
 </resources>

@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/tv_balance_value"
-        android:layout_width="131dp"
+        android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
@@ -62,7 +62,7 @@
 
     <TextView
         android:id="@+id/tv_investment_balance_value"
-        android:layout_width="131dp"
+        android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
@@ -72,6 +72,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_investment_balance"
         app:layout_constraintTop_toBottomOf="@+id/tv_balance_value" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

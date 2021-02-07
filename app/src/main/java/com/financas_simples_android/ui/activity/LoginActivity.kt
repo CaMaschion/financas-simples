@@ -9,7 +9,7 @@ import com.financas_simples_android.model.request.AuthRequest
 import com.financas_simples_android.model.response.TokenResponse
 import com.financas_simples_android.service.ApiService
 import com.financas_simples_android.service.AuthService
-import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login)
+        setContentView(R.layout.activity_login)
 
         registerButtons()
     }
