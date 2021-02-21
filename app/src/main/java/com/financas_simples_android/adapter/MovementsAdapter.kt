@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.financas_simples_android.R
 import com.financas_simples_android.model.response.MovementResponse
 import com.financas_simples_android.utils.Format.Companion.formatCategoryColor
+import com.financas_simples_android.utils.Format.Companion.formatCurrency
 import com.financas_simples_android.utils.Format.Companion.formatDate
 import com.financas_simples_android.utils.Format.Companion.formatValueColor
-import java.util.*
 
 class MovementsAdapter(private val movement: List<MovementResponse>) :
     RecyclerView.Adapter<MovementsAdapter.ViewHolder>() {
@@ -42,6 +42,9 @@ class MovementsAdapter(private val movement: List<MovementResponse>) :
 
         val categoryColor = formatCategoryColor(movement[position].category)
         viewHolder.movementCategory.setBackgroundColor(Color.parseColor(categoryColor))
+
+        val currency = formatCurrency(movement[position].value)
+        viewHolder.movementValue.text = currency
 
     }
 

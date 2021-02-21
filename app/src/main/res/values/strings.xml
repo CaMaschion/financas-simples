@@ -23,6 +23,7 @@
     <string name="email_register">E-mail</string>
     <string name="input_password">Senha</string>
 
+<!--    navigation drawer-->
 
     <string name="title_activity_menu">MenuActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -34,7 +35,7 @@
 
 <!--    navigation nav menu-->
 
-    <string name="menu_new_movement">Nova Movimentação</string>
+    <string name="menu_new_movement">Nova movimentação</string>
     <string name="menu_my_investment">Meus investimentos</string>
     <string name="menu_my_movement">Minhas movimentações</string>
     <string name="menu_my_profile">Editar minhas informações</string>
