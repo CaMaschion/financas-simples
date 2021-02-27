@@ -35,6 +35,7 @@
 
 <!--    navigation nav menu-->
 
+    <string name="menu_home">Home</string>
     <string name="menu_new_movement">Nova movimentação</string>
     <string name="menu_my_investment">Meus investimentos</string>
     <string name="menu_my_movement">Minhas movimentações</string>

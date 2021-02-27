@@ -13,66 +13,59 @@
         android:id="@+id/tv_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:text="Saldo"
         android:textColor="@color/colorBackgroud"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_balance_value"
         app:layout_constraintEnd_toStartOf="@+id/tv_balance_value"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tv_balance_value" />
 
     <TextView
         android:id="@+id/tv_balance_value"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="R$ 1000.000,00"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_investment_balance_value"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/tv_balance"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="R$ 1000.000,00" />
 
     <TextView
         android:id="@+id/tv_investment_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Investimentos"
+        android:layout_margin="16dp"
+        android:text="Total investido"
         android:textColor="@color/colorBackgroud"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_investment_balance_value"
         app:layout_constraintEnd_toStartOf="@+id/tv_investment_balance_value"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_balance" />
+        app:layout_constraintTop_toTopOf="@+id/tv_investment_balance_value" />
 
 
     <TextView
         android:id="@+id/tv_investment_balance_value"
         android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="R$ 2000.000,00"
+        android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tv_investment_balance"
-        app:layout_constraintTop_toBottomOf="@+id/tv_balance_value" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_balance_value"
+        tools:text="R$ 2000.000,00" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
