@@ -2,6 +2,7 @@ package com.financas_simples_android.ui.activity
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.financas_simples_android.R
 import com.financas_simples_android.adapter.MovementsAdapter
+import com.financas_simples_android.model.response.BalanceResponse
 import com.financas_simples_android.model.response.MovementResponse
 import com.financas_simples_android.service.ApiService
+import com.financas_simples_android.service.BalanceService
 import com.financas_simples_android.service.MovementService
+import com.financas_simples_android.utils.Format.Companion.formatCurrency
 import com.google.android.material.navigation.NavigationView
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,6 +30,8 @@ class HomeActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var movementAdapter: MovementsAdapter
+    lateinit var balance : TextView
+    lateinit var investiment : TextView
     private var mDrawer: DrawerLayout? = null
     private var toolbar: Toolbar? = null
     private val nvDrawer: NavigationView? = null
@@ -35,6 +41,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        balance = findViewById(R.id.tv_balance_value)
+        investiment= findViewById(R.id.tv_investment_balance_value)
 
         // Set a Toolbar to replace the ActionBar.
         toolbar = findViewById(R.id.toolbar);
@@ -55,6 +64,7 @@ class HomeActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.rv_last_movement)
 
         getMovements()
+        getBalances()
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -124,9 +134,32 @@ class HomeActivity : AppCompatActivity() {
                     }
                 }
             }
-
             override fun onFailure(call: Call<List<MovementResponse>>, t: Throwable) {
                 Toast.makeText(this@HomeActivity, "deu ruim", Toast.LENGTH_LONG).show()
+            }
+        })
+    }
+
+    private fun getBalances() {
+
+        val request = ApiService.buildService(BalanceService::class.java)
+        val call = request.getBalances()
+
+        call.enqueue(object : Callback<BalanceResponse> {
+            override fun onResponse(
+                call: Call<BalanceResponse>,
+                response: Response<BalanceResponse>
+            ) {
+                if (response.isSuccessful) {
+
+                    val body = response.body()
+                    balance.text = formatCurrency(body?.balances?.movementBalance.toString())
+                    investiment.text = formatCurrency(body?.balances?.movementInvestment.toString())
+
+                }
+            }
+            override fun onFailure(call: Call<BalanceResponse>, t: Throwable) {
+                Toast.makeText(this@HomeActivity, "não foi possível mostrar o saldo", Toast.LENGTH_LONG).show()
             }
         })
     }
