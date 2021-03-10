@@ -18,12 +18,13 @@
     <string name="password_register">Senha</string>
     <string name="confirm_password_register">Confirmar Senha</string>
     <string name="btn_new_register">Cadastrar</string>
+    <string name="btn_new_movement">Salvar</string>
     <string name="radio_female">Feminino</string>
     <string name="radio_male">Masculino</string>
     <string name="email_register">E-mail</string>
     <string name="input_password">Senha</string>
 
-<!--    navigation drawer-->
+    <!--    navigation drawer-->
 
     <string name="title_activity_menu">MenuActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -33,7 +34,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-<!--    navigation nav menu-->
+    <!--    navigation nav menu-->
 
     <string name="menu_home">Home</string>
     <string name="menu_new_movement">Nova movimentação</string>
@@ -41,5 +42,36 @@
     <string name="menu_my_movement">Minhas movimentações</string>
     <string name="menu_my_profile">Editar minhas informações</string>
     <string name="menu_logout">Sair</string>
+
+    <!--    nem movement fragment-->
+
+    <string-array name="movement_type_array">
+        <item>Crédito</item>
+        <item>Saque</item>
+        <item>Investimento</item>
+        <item>Despesa</item>
+    </string-array>
+
+    <string-array name="movement_category_array">
+        <item>Nenhum</item>
+        <item>Supermercado</item>
+        <item>Saúde</item>
+        <item>Vestuário</item>
+        <item>Cuidados pessoais</item>
+        <item>Comida</item>
+        <item>Pet</item>
+        <item>Transporte</item>
+        <item>Investimento</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="investiment_type_array">
+        <item>Poupança</item>
+        <item>Ações</item>
+        <item>Fundo imobiliário</item>
+        <item>Previdência</item>
+        <item>Outro</item>
+
+    </string-array>
 
 </resources>

@@ -13,9 +13,11 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
 
+        <activity android:name=".ui.activity.LoginActivity"></activity>
+
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.activity.HomeActivity" />
-        <activity android:name=".ui.activity.LoginActivity">
+        <activity android:name=".ui.activity.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

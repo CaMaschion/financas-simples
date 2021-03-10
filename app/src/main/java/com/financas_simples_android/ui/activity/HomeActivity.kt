@@ -42,6 +42,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+
         balance = findViewById(R.id.tv_balance_value)
         investiment= findViewById(R.id.tv_investment_balance_value)
 
