@@ -48,19 +48,18 @@
         tools:ignore="LabelFor" />
 
     <Spinner
+        style="?attr/spinnerDropDownItemStyle"
         android:id="@+id/spinner_movement"
-
         android:layout_width="match_parent"
         android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:theme="@style/spinner_theme"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/style_spinner"
-
-        android:entries="@array/movement_type_array"
-
+        android:entries="@array/investiment_type_array"
         app:layout_constraintBottom_toTopOf="@+id/spinner_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,9 +76,8 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/round_border"
-        android:backgroundTint="@color/colorBackgroud"
-        android:entries="@array/investiment_type_array"
+        android:background="@drawable/style_spinner"
+        android:entries="@array/movement_type_array"
         android:theme="@style/spinner_theme"
         app:layout_constraintBottom_toTopOf="@+id/spinner_movement"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,8 +94,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:background="@drawable/round_border"
-        android:backgroundTint="@color/colorBackgroud"
+        android:background="@drawable/style_spinner"
         android:entries="@array/movement_category_array"
         android:theme="@style/spinner_theme"
         app:layout_constraintBottom_toTopOf="@+id/btnNewRegister"

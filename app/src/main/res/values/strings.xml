@@ -46,7 +46,7 @@
     <!--    nem movement fragment-->
 
     <string-array name="movement_type_array">
-        <item>Movimentação:</item>
+        <item>Tipo:</item>
         <item>Crédito</item>
         <item>Saque</item>
         <item>Investimento</item>
