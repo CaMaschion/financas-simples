@@ -14,14 +14,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:autofillHints="valor"
         android:background="@drawable/round_border"
         android:backgroundTint="@color/colorBackgroud"
         android:ems="10"
-        android:hint="Valor"
+        android:hint="@string/movement_value"
         android:inputType="numberDecimal"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         android:background="@drawable/round_border"
         android:backgroundTint="@color/colorBackgroud"
         android:ems="10"
-        android:hint="Descrição"
+        android:hint="@string/movement_description"
         android:inputType="textPersonName"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,17 +102,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_movement" />
 
-
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:text="Despesa parcelada?"
+        android:text="@string/installment"
         android:textColor="@color/colorBackgroud"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -127,6 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="60dp"
@@ -138,8 +138,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_category" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
