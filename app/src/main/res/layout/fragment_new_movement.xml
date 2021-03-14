@@ -49,7 +49,7 @@
 
     <Spinner
         android:id="@+id/spinner_movement"
-        style="?attr/spinnerDropDownItemStyle"
+
         android:layout_width="match_parent"
         android:layout_height="?attr/dropdownListPreferredItemHeight"
         android:layout_marginStart="32dp"
@@ -57,10 +57,10 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/round_border"
-        android:backgroundTint="@color/colorBackgroud"
+        android:background="@drawable/style_spinner"
+
         android:entries="@array/movement_type_array"
-        android:theme="@style/spinner_theme"
+
         app:layout_constraintBottom_toTopOf="@+id/spinner_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
