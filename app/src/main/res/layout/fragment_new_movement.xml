@@ -49,44 +49,80 @@
 
     <Spinner
         android:id="@+id/spinner_movement"
-        android:theme="@style/spinner_theme"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        style="?attr/spinnerDropDownItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_border"
+        android:backgroundTint="@color/colorBackgroud"
         android:entries="@array/movement_type_array"
+        android:theme="@style/spinner_theme"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_investiment" />
 
     <Spinner
-        android:theme="@style/spinner_theme"
-        android:id="@+id/spinner_category"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:entries="@array/movement_category_array"
-        app:layout_constraintBottom_toTopOf="@+id/btnNewRegister"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_movement"
-        tools:layout_editor_absoluteX="32dp" />
-
-    <Spinner
         android:id="@+id/spinner_investiment"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        style="?attr/spinnerDropDownItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_border"
+        android:backgroundTint="@color/colorBackgroud"
         android:entries="@array/investiment_type_array"
         android:theme="@style/spinner_theme"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="293dp" />
+        app:layout_constraintBottom_toTopOf="@+id/spinner_movement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch1"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Spinner
+        android:id="@+id/spinner_category"
+        style="?attr/spinnerDropDownItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/round_border"
+        android:backgroundTint="@color/colorBackgroud"
+        android:entries="@array/movement_category_array"
+        android:theme="@style/spinner_theme"
+        app:layout_constraintBottom_toTopOf="@+id/btnNewRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_movement" />
+
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:text="Despesa parcelada?"
         android:textColor="@color/colorBackgroud"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="232dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <Button
         android:id="@+id/btnNewRegister"

@@ -2,14 +2,12 @@
 <resources>
 
     <style name="spinner_theme">
+
         <item name="android:textSize">18sp</item>
-        <item name="android:colorBackground">@color/colorBackgroud</item>
         <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:background">@drawable/round_border</item>
-        <item name="android:backgroundTint">@color/colorBackgroud</item>
-        <item name="android:height">50dp</item>
+        <item name="android:textStyle">bold</item>
 
     </style>
 
-
 </resources>
+
