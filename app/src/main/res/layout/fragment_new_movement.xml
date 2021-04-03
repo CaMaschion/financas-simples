@@ -13,7 +13,7 @@
         android:layout_width="347dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="80dp"
         android:layout_marginRight="32dp"
         android:autofillHints="valor"
         android:background="@drawable/round_border"
@@ -70,7 +70,6 @@
         android:theme="@style/spinner_theme"
         app:layout_constraintBottom_toTopOf="@+id/spinner_movement"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editMountInstallment" />
 
@@ -84,46 +83,49 @@
         android:background="@drawable/style_spinner"
         android:entries="@array/movement_category_array"
         android:theme="@style/spinner_theme"
-        app:layout_constraintBottom_toTopOf="@+id/btnNewRegister"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegisterNewMovement"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_movement" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:text="@string/installment"
         android:textColor="@color/colorBackgroud"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:theme="@style/Color1SwitchStyle"
         app:layout_constraintBottom_toBottomOf="@+id/editMountInstallment"
         app:layout_constraintEnd_toStartOf="@+id/editMountInstallment"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editMountInstallment" />
 
+
     <EditText
         android:id="@+id/editMountInstallment"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
         android:autofillHints="descrição"
         android:background="@drawable/round_border"
         android:backgroundTint="@color/colorBackgroud"
-        android:ems="10"
         android:hint="@string/movement_installment"
         android:inputType="textPersonName"
         android:padding="16dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/switch1"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
         tools:ignore="LabelFor" />
 
     <Button
-        android:id="@+id/btnNewRegister"
+        android:id="@+id/btnRegisterNewMovement"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
