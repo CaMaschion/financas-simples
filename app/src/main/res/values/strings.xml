@@ -44,6 +44,7 @@
     <string name="menu_logout">Sair</string>
     <string name="installment">Despesa parcelada?</string>
     <string name="movement_description">Descrição</string>
+    <string name="movement_installment">Parcelas</string>
     <string name="movement_value">Valor</string>
 
     <!--    nem movement fragment-->
