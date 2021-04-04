@@ -23,7 +23,7 @@
     <string name="email_register">E-mail</string>
     <string name="input_password">Senha</string>
 
-<!--    navigation drawer-->
+    <!--    navigation drawer-->
 
     <string name="title_activity_menu">MenuActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -33,7 +33,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-<!--    navigation nav menu-->
+    <!--    navigation nav menu-->
 
     <string name="menu_home">Home</string>
     <string name="menu_new_movement">Nova movimentação</string>
@@ -41,5 +41,7 @@
     <string name="menu_my_movement">Minhas movimentações</string>
     <string name="menu_my_profile">Editar minhas informações</string>
     <string name="menu_logout">Sair</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

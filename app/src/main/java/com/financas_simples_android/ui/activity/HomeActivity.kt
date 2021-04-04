@@ -2,69 +2,62 @@ package com.financas_simples_android.ui.activity
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.financas_simples_android.R
-import com.financas_simples_android.adapter.MovementsAdapter
-import com.financas_simples_android.model.response.BalanceResponse
-import com.financas_simples_android.model.response.MovementResponse
-import com.financas_simples_android.service.ApiService
-import com.financas_simples_android.service.BalanceService
-import com.financas_simples_android.service.MovementService
-import com.financas_simples_android.utils.Format.Companion.formatCurrency
+import com.financas_simples_android.ui.fragment.OverviewFragment
 import com.google.android.material.navigation.NavigationView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import android.content.res.Configuration as Configuration1
 
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    lateinit var recyclerView: RecyclerView
-    lateinit var movementAdapter: MovementsAdapter
-    lateinit var balance : TextView
-    lateinit var investiment : TextView
     private var mDrawer: DrawerLayout? = null
     private var toolbar: Toolbar? = null
-    private val nvDrawer: NavigationView? = null
+    lateinit var nvView: NavigationView
 
     private var drawerToggle: ActionBarDrawerToggle? = null
+    private var fragmentManager: FragmentManager? = null
+    private var fragmentTransaction: FragmentTransaction? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        balance = findViewById(R.id.tv_balance_value)
-        investiment= findViewById(R.id.tv_investment_balance_value)
-
         // Set a Toolbar to replace the ActionBar.
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         // This will display an Up icon (<-), we will replace it with hamburger later
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Find our drawer view
-        mDrawer = findViewById(R.id.drawer_layout);
-        drawerToggle = setupDrawerToggle();
+        mDrawer = findViewById(R.id.drawer_layout)
+        drawerToggle = setupDrawerToggle()
 
         // Setup toggle to display hamburger icon with nice animation
-        drawerToggle!!.isDrawerIndicatorEnabled = true;
-        drawerToggle!!.syncState();
-        mDrawer!!.addDrawerListener(drawerToggle!!);
+        drawerToggle!!.isDrawerIndicatorEnabled = true
+        drawerToggle!!.syncState()
+        mDrawer!!.addDrawerListener(drawerToggle!!)
 
-        recyclerView = findViewById(R.id.rv_last_movement)
+        nvView = findViewById(R.id.nvView)
+        nvView.setNavigationItemSelectedListener(this)
 
-        getMovements()
-        getBalances()
+        fragmentManager = this.supportFragmentManager
+        fragmentTransaction = fragmentManager!!.beginTransaction()
+
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.container_root, OverviewFragment.newInstance(),
+                    "OverviewFragment")
+                .commit()
+        }
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -72,7 +65,6 @@ class HomeActivity : AppCompatActivity() {
         // Sync the toggle state after onRestoreInstanceState has occurred.
         drawerToggle!!.syncState()
     }
-
 
     override fun onConfigurationChanged(newConfig: Configuration1) {
         super.onConfigurationChanged(newConfig)
@@ -110,57 +102,9 @@ class HomeActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun getMovements() {
-
-        val request = ApiService.buildService(MovementService::class.java)
-        val call = request.getMovements()
-
-        call.enqueue(object : Callback<List<MovementResponse>> {
-            override fun onResponse(
-                call: Call<List<MovementResponse>>,
-                response: Response<List<MovementResponse>>
-            ) {
-                if (response.isSuccessful) {
-
-                    val body = response.body()
-                    movementAdapter = body?.let { MovementsAdapter(it) }!!
-
-                    recyclerView.apply {
-
-                        layoutManager = LinearLayoutManager(this@HomeActivity)
-                        recyclerView.layoutManager = layoutManager
-                        setHasFixedSize(true)
-                        adapter = movementAdapter
-                    }
-                }
-            }
-            override fun onFailure(call: Call<List<MovementResponse>>, t: Throwable) {
-                Toast.makeText(this@HomeActivity, "deu ruim", Toast.LENGTH_LONG).show()
-            }
-        })
-    }
-
-    private fun getBalances() {
-
-        val request = ApiService.buildService(BalanceService::class.java)
-        val call = request.getBalances()
-
-        call.enqueue(object : Callback<BalanceResponse> {
-            override fun onResponse(
-                call: Call<BalanceResponse>,
-                response: Response<BalanceResponse>
-            ) {
-                if (response.isSuccessful) {
-
-                    val body = response.body()
-                    balance.text = formatCurrency(body?.balances?.movementBalance.toString())
-                    investiment.text = formatCurrency(body?.balances?.movementInvestment.toString())
-
-                }
-            }
-            override fun onFailure(call: Call<BalanceResponse>, t: Throwable) {
-                Toast.makeText(this@HomeActivity, "não foi possível mostrar o saldo", Toast.LENGTH_LONG).show()
-            }
-        })
+    @SuppressWarnings("StatementWithEmptyBody")
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        this.mDrawer?.closeDrawer(GravityCompat.START)
+        return true
     }
 }
