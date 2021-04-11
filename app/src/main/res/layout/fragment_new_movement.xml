@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
+    android:layout_gravity="center"
     tools:context=".ui.activity.NewMovementFragment">
 
     <EditText
         android:id="@+id/editTextValue"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:layout_marginBottom="16dp"
         android:autofillHints="valor"
         android:background="@drawable/round_border"
         android:backgroundTint="@color/colorBackgroud"
         android:hint="@string/movement_value"
         android:inputType="numberDecimal"
         android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor" />
 
     <EditText
@@ -28,32 +36,52 @@
         android:layout_width="347dp"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:autofillHints="descrição"
         android:background="@drawable/round_border"
         android:backgroundTint="@color/colorBackgroud"
         android:hint="@string/movement_description"
         android:inputType="textPersonName"
         android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextValue"
         tools:ignore="LabelFor" />
 
     <Spinner
         android:id="@+id/spinner_movement"
         style="?attr/spinnerDropDownItemStyle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/style_spinner"
         android:entries="@array/movement_type_array"
-        android:theme="@style/spinner_theme" />
+        android:theme="@style/spinner_theme"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescription" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:orientation="horizontal">
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_margin="32dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_movement">
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchInstallment"
@@ -64,21 +92,25 @@
             android:textColor="@color/colorBackgroud"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:theme="@style/Color1SwitchStyle" />
+            android:theme="@style/Color1SwitchStyle"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="338dp" />
 
         <EditText
             android:id="@+id/editMountInstallment"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:autofillHints="descrição"
             android:background="@drawable/round_border"
             android:backgroundTint="@color/colorBackgroud"
             android:hint="@string/movement_installment"
             android:inputType="textPersonName"
-            android:padding="30dp"
+            android:textColor="@color/colorPrimaryOrange"
+            android:padding="40dp"
             android:visibility="invisible"
-            tools:ignore="LabelFor" />
+             />
 
     </LinearLayout>
 
@@ -88,37 +120,57 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/dropdownListPreferredItemHeight"
         android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/style_spinner"
         android:entries="@array/investiment_type_array"
-        android:theme="@style/spinner_theme" />
-
+        android:theme="@style/spinner_theme"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegisterNewMovement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_category" />
 
     <Spinner
         android:id="@+id/spinner_category"
         style="?attr/spinnerDropDownItemStyle"
         android:layout_width="match_parent"
         android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/style_spinner"
         android:entries="@array/movement_category_array"
-        android:theme="@style/spinner_theme" />
+        android:theme="@style/spinner_theme"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_investiment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
         android:id="@+id/btnRegisterNewMovement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/round_bt"
         android:text="@string/btn_new_movement"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_investiment" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
