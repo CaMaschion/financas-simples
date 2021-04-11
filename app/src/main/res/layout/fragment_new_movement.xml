@@ -28,8 +28,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextDescription"
@@ -49,8 +48,7 @@
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextValue"
-        tools:ignore="LabelFor" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextValue" />
 
     <Spinner
         android:id="@+id/spinner_movement"
@@ -92,9 +90,7 @@
             android:textColor="@color/colorBackgroud"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:theme="@style/Color1SwitchStyle"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="338dp" />
+            android:theme="@style/Color1SwitchStyle" />
 
         <EditText
             android:id="@+id/editMountInstallment"
@@ -106,7 +102,7 @@
             android:background="@drawable/round_border"
             android:backgroundTint="@color/colorBackgroud"
             android:hint="@string/movement_installment"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:padding="10dp"
             android:textColor="@color/colorPrimaryOrange"
             android:textSize="14sp"
@@ -170,7 +166,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_investiment" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
