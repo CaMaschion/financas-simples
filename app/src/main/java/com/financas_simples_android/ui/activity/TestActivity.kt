@@ -9,7 +9,6 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
-
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
@@ -17,6 +16,5 @@ class TestActivity : AppCompatActivity() {
                     "NewMovementFragment")
                 .commit()
         }
-
     }
 }

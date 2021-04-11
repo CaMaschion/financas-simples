@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +9,7 @@
     tools:context=".ui.activity.NewMovementFragment">
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/editTextValue"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
@@ -21,13 +21,10 @@
         android:hint="@string/movement_value"
         android:inputType="numberDecimal"
         android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextDescription"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
@@ -37,26 +34,41 @@
         android:hint="@string/movement_description"
         android:inputType="textPersonName"
         android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal"
         tools:ignore="LabelFor" />
 
-    <Spinner
-        android:id="@+id/spinner_movement"
-        style="?attr/spinnerDropDownItemStyle"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/dropdownListPreferredItemHeight"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:background="@drawable/style_spinner"
-        android:entries="@array/investiment_type_array"
-        android:theme="@style/spinner_theme"
-        app:layout_constraintBottom_toTopOf="@+id/spinner_category"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_investiment" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchInstallment"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:text="@string/installment"
+            android:textColor="@color/colorBackgroud"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:theme="@style/Color1SwitchStyle" />
+
+        <EditText
+            android:id="@+id/editMountInstallment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:autofillHints="descrição"
+            android:background="@drawable/round_border"
+            android:backgroundTint="@color/colorBackgroud"
+            android:hint="@string/movement_installment"
+            android:inputType="textPersonName"
+            android:padding="20dp"
+            android:visibility="invisible"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
 
     <Spinner
         android:id="@+id/spinner_investiment"
@@ -65,13 +77,22 @@
         android:layout_height="?attr/dropdownListPreferredItemHeight"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/style_spinner"
+        android:entries="@array/investiment_type_array"
+        android:theme="@style/spinner_theme" />
+
+    <Spinner
+        android:id="@+id/spinner_movement"
+        style="?attr/spinnerDropDownItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/style_spinner"
         android:entries="@array/movement_type_array"
-        android:theme="@style/spinner_theme"
-        app:layout_constraintBottom_toTopOf="@+id/spinner_movement"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editMountInstallment" />
+        android:theme="@style/spinner_theme" />
 
     <Spinner
         android:id="@+id/spinner_category"
@@ -80,53 +101,14 @@
         android:layout_height="?attr/dropdownListPreferredItemHeight"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/style_spinner"
         android:entries="@array/movement_category_array"
-        android:theme="@style/spinner_theme"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegisterNewMovement"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_movement" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:text="@string/installment"
-        android:textColor="@color/colorBackgroud"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:theme="@style/Color1SwitchStyle"
-        app:layout_constraintBottom_toBottomOf="@+id/editMountInstallment"
-        app:layout_constraintEnd_toStartOf="@+id/editMountInstallment"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editMountInstallment" />
-
-
-    <EditText
-        android:id="@+id/editMountInstallment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="32dp"
-        android:autofillHints="descrição"
-        android:background="@drawable/round_border"
-        android:backgroundTint="@color/colorBackgroud"
-        android:hint="@string/movement_installment"
-        android:inputType="textPersonName"
-        android:padding="16dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/switch1"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        tools:ignore="LabelFor" />
+        android:theme="@style/spinner_theme" />
 
     <Button
         android:id="@+id/btnRegisterNewMovement"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
@@ -135,10 +117,7 @@
         android:text="@string/btn_new_movement"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 

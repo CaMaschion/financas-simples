@@ -19,12 +19,12 @@ class NewMovementFragment : Fragment() {
         fun newInstance() = NewMovementFragment()
     }
 
-    lateinit var editTextNumberDecimal: EditText
-    lateinit var editTextTextPersonName: EditText
+    lateinit var editTextValue: EditText
+    lateinit var editTextDescription: EditText
     lateinit var editMountInstallment: EditText
     lateinit var spinnerMovement: Spinner
     lateinit var switch: SwitchCompat
-    lateinit var button: Button
+    lateinit var btnRegisterNewMovement: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,15 +34,14 @@ class NewMovementFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_new_movement, container, false)
 
-        button = view.findViewById(R.id.btnRegisterNewMovement)
+        btnRegisterNewMovement = view.findViewById(R.id.btnRegisterNewMovement)
         editMountInstallment = view.findViewById(R.id.editMountInstallment)
 
-        button.setOnClickListener {
+        btnRegisterNewMovement.setOnClickListener {
             println("BTN")
         }
 
-        switch = view.findViewById(R.id.switch1)
-
+        switch = view.findViewById(R.id.switchInstallment)
 
         switch.setOnCheckedChangeListener { _, isChecked ->
             editMountInstallment.isVisible = isChecked
