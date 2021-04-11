@@ -50,15 +50,17 @@
     <!--    nem movement fragment-->
 
     <string-array name="movement_type_array">
-        <item>Tipo:</item>
+
+        <item>Selecione:</item>
         <item>Crédito</item>
         <item>Saque</item>
         <item>Investimento</item>
         <item>Despesa</item>
+
     </string-array>
 
     <string-array name="movement_category_array">
-        <item>Categoria:</item>
+        <item>Selecione:</item>
         <item>Nenhum</item>
         <item>Supermercado</item>
         <item>Saúde</item>
@@ -72,7 +74,7 @@
     </string-array>
 
     <string-array name="investiment_type_array">
-        <item>Investimento:</item>
+        <item>Selecione:</item>
         <item>Poupança</item>
         <item>Ações</item>
         <item>Fundo imobiliário</item>
