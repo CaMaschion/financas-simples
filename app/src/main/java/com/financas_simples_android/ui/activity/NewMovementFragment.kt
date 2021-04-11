@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.fragment_new_movement.*
 
 class NewMovementFragment : Fragment() {
 
-
     companion object {
         fun newInstance() = NewMovementFragment()
     }
@@ -35,10 +34,18 @@ class NewMovementFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_new_movement, container, false)
 
+        button = view.findViewById(R.id.btnRegisterNewMovement)
+        editMountInstallment = view.findViewById(R.id.editMountInstallment)
+
+        button.setOnClickListener {
+            println("BTN")
+        }
+
+        switch = view.findViewById(R.id.switch1)
+
+
         switch.setOnCheckedChangeListener { _, isChecked ->
-            if(isChecked) {
-                editMountInstallment.isVisible
-            }
+            editMountInstallment.isVisible = isChecked
         }
         return view
     }
