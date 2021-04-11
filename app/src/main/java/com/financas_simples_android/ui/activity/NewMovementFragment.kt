@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.widget.SwitchCompat
-import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.financas_simples_android.R
-import kotlinx.android.synthetic.main.fragment_new_movement.*
+
 
 class NewMovementFragment : Fragment() {
 
@@ -25,6 +24,14 @@ class NewMovementFragment : Fragment() {
     lateinit var switch: SwitchCompat
     lateinit var btnRegisterNewMovement: Button
     lateinit var linearLayout: LinearLayout
+
+    enum class Position (val value: Int) {
+        SELECT(0),
+        CREDIT(1),
+        WITHDRAW(2),
+        INVESTMENT(3),
+        EXPENSE(4)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,26 +67,26 @@ class NewMovementFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                var itemAtPosition = parent?.getItemAtPosition(position)
 
-                if (itemAtPosition == "Investimento") {
+                if (position == Position.INVESTMENT.value) {
                     spinnerInvestiment.isVisible = true
                     spinnerCategory.isVisible = false
                     linearLayout.isVisible = false
                 }
 
-                if (itemAtPosition == "Despesa") {
+                if (position == Position.EXPENSE.value) {
                     spinnerInvestiment.isVisible = false
                     spinnerCategory.isVisible = true
                     linearLayout.isVisible = true
                 }
 
-                if (itemAtPosition == "Saque" || itemAtPosition == "Crédito") {
+                if (position == Position.WITHDRAW.value || position == Position.CREDIT.value) {
                     spinnerInvestiment.isVisible = false
                     spinnerCategory.isVisible = false
                     linearLayout.isVisible = false
                 }
             }
+
         }
 
         return view
