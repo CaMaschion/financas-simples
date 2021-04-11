@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
 
     private val REQUIRED_FIELDS_ERROR_MSG = "Usuário ou senha não preenchidos"
     private val REQUEST_ERROR_MSG = "Ocorreu um erro. Tente novamaente"
-    private val INVALID_CREDENTIALS_ERROR_MSG  = "Usuario ou senha inválidos"
+    private val INVALID_CREDENTIALS_ERROR_MSG = "Usuario ou senha inválidos"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,29 +41,34 @@ class LoginActivity : AppCompatActivity() {
         responseCall.enqueue(object : Callback<TokenResponse> {
 
             override fun onFailure(call: Call<TokenResponse>, t: Throwable) {
-                Toast.makeText(applicationContext, REQUEST_ERROR_MSG , Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, REQUEST_ERROR_MSG, Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<TokenResponse>, response: Response<TokenResponse>) {
-                if(isValidResponse(response))
-                {
+                if (isValidResponse(response)) {
                     goToHomePage()
-                }
-                else{
-                    Toast.makeText(applicationContext, INVALID_CREDENTIALS_ERROR_MSG, Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        INVALID_CREDENTIALS_ERROR_MSG,
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         })
     }
 
-    private fun registerButtons()
-    {
+    private fun registerButtons() {
+
         btnLogin.setOnClickListener {
 
             if (validateUsernameAndPassword()) {
                 Toast.makeText(this, REQUIRED_FIELDS_ERROR_MSG, Toast.LENGTH_SHORT).show()
             } else {
-                authenticateUserAndPassword(emailAdress.text.toString(), textPassword.text.toString())
+                authenticateUserAndPassword(
+                    emailAdress.text.toString(),
+                    textPassword.text.toString()
+                )
             }
         }
 
@@ -78,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun isValidResponse(response: Response<TokenResponse>): Boolean {
-       return response.body() != null && response.body()?.error == false
+        return response.body() != null && response.body()?.error == false
     }
 
     private fun goToRegisterPage() {

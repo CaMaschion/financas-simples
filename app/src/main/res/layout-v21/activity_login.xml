@@ -9,6 +9,7 @@
 
     <EditText
         android:id="@+id/emailAdress"
+        android:imeOptions="actionNext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -30,8 +31,8 @@
         app:layout_constraintVertical_bias="0.435" />
 
     <EditText
-
         android:id="@+id/textPassword"
+        android:imeOptions="actionDone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

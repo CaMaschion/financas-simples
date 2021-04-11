@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner_movement" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch1"
+        android:id="@id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
