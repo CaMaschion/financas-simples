@@ -36,12 +36,24 @@
         android:padding="16dp"
         tools:ignore="LabelFor" />
 
+    <Spinner
+        android:id="@+id/spinner_movement"
+        style="?attr/spinnerDropDownItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/style_spinner"
+        android:entries="@array/movement_type_array"
+        android:theme="@style/spinner_theme" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp">
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal">
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchInstallment"
@@ -64,7 +76,7 @@
             android:backgroundTint="@color/colorBackgroud"
             android:hint="@string/movement_installment"
             android:inputType="textPersonName"
-            android:padding="20dp"
+            android:padding="30dp"
             android:visibility="invisible"
             tools:ignore="LabelFor" />
 
@@ -75,24 +87,13 @@
         style="?attr/spinnerDropDownItemStyle"
         android:layout_width="match_parent"
         android:layout_height="?attr/dropdownListPreferredItemHeight"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/style_spinner"
         android:entries="@array/investiment_type_array"
         android:theme="@style/spinner_theme" />
 
-    <Spinner
-        android:id="@+id/spinner_movement"
-        style="?attr/spinnerDropDownItemStyle"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/dropdownListPreferredItemHeight"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/style_spinner"
-        android:entries="@array/movement_type_array"
-        android:theme="@style/spinner_theme" />
 
     <Spinner
         android:id="@+id/spinner_category"
